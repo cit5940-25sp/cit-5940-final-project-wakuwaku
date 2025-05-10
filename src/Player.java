@@ -10,8 +10,7 @@ public class Player {
     private final String name;
     private int score;
     private final List<Movie> namedMovies;
-    private final WinCondition winCondition;
-    private boolean hasWon;
+    private final WinConditionStrategy winCondition;
 
     /**
      * Creates a new player with the specified name and win condition.
@@ -19,12 +18,11 @@ public class Player {
      * @param name The player's name
      * @param winCondition The win condition for this player
      */
-    public Player(String name, WinCondition winCondition) {
+    public Player(String name, WinConditionStrategy winCondition) {
         this.name = Objects.requireNonNull(name, "Player name cannot be null");
         this.winCondition = Objects.requireNonNull(winCondition, "Win condition cannot be null");
         this.namedMovies = new ArrayList<>();
         this.score = 0;
-        this.hasWon = false;
     }
 
     /**
@@ -75,14 +73,7 @@ public class Player {
     public void addNamedMovie(Movie movie) {
         if (movie != null) {
             namedMovies.add(movie);
-
-            // Check if this movie advances the player toward their win condition
-            if (winCondition != null && winCondition.movieContributes(movie)) {
-                // Check if player has won after adding this movie
-                if (winCondition.hasAchieved(this)) {
-                    hasWon = true;
-                }
-            }
+            winCondition.recordMovie(movie);
         }
     }
 
@@ -92,7 +83,7 @@ public class Player {
      *
      * @return The player's win condition
      */
-    public WinCondition getWinCondition() {
+    public WinConditionStrategy getWinCondition() {
         return winCondition;
     }
 
@@ -102,7 +93,7 @@ public class Player {
      * @return true if the player has won, false otherwise
      */
     public boolean hasWon() {
-        return hasWon;
+        return winCondition.isSatisfied();
     }
 
     /**
@@ -111,10 +102,10 @@ public class Player {
      * @return A description of the player's progress
      */
     public String getProgressDescription() {
-        if (winCondition == null) {
-            return "No win condition set";
-        }
-        return winCondition.getProgressDescription(this);
+        return String.format("%d/%d - %s",
+                winCondition.getCurrentCount(),
+                winCondition.getTargetCount(),
+                winCondition.getDescription());
     }
 
     /**
@@ -128,14 +119,25 @@ public class Player {
         }
         return namedMovies.get(namedMovies.size() - 1);
     }
+    /**
+     * Resets the player's score to zero.
+     * This can be useful when starting a new game with the same players.
+     */
+    public void resetScore() {
+        this.score = 0;
+    }
+
+    /**
+     * Resets the player's named movies list.
+     * This can be useful when starting a new game with the same players.
+     */
+    public void resetNamedMovies() {
+        this.namedMovies.clear();
+    }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Player: ").append(name)
-                .append(" | Score: ").append(score)
-                .append(" | Progress: ").append(getProgressDescription());
-
-        return sb.toString();
+        return String.format("Player: %s | Score: %d | Progress: %s",
+                name, score, getProgressDescription());
     }
 }
