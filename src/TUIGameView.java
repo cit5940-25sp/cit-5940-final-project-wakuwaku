@@ -723,7 +723,7 @@ public class TUIGameView {
         }
     }
 
-    // Helper method to output string at specified position on screen
+    // Helper method to output string at specified position
     private static void printStringToScreen(Screen screen, int col, int row, String text) {
         // Filter out special characters that might cause display problems
         String safeText = text.replaceAll("[^\u0000-\uFFFF]", "*");
