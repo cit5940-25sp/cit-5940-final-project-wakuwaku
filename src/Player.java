@@ -11,6 +11,7 @@ public class Player {
     private int score;
     private final List<Movie> namedMovies;
     private final WinConditionStrategy winCondition;
+    private boolean hasExtraTime = true;
 
     /**
      * Creates a new player with the specified name and win condition.
@@ -139,5 +140,18 @@ public class Player {
     public String toString() {
         return String.format("Player: %s | Score: %d | Progress: %s",
                 name, score, getProgressDescription());
+    }
+    /**
+     * check whether player have the extra time to use
+     */
+    public boolean hasExtraTimeAvailable() {
+        return hasExtraTime;
+    }
+
+    /**
+     * use the extra time for player
+     */
+    public void useExtraTime() {
+        this.hasExtraTime = false;
     }
 }
