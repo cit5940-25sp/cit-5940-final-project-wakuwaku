@@ -87,4 +87,13 @@ public class MovieIndex {
 
         return connectedMovies;
     }
+
+    /**
+     * Returns the total number of movies in the index.
+     *
+     * @return The number of movies in the index
+     */
+    public int size() {
+        return titleMap.size();
+    }
 }
