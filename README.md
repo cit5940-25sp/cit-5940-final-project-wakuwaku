@@ -72,9 +72,6 @@ The Factory pattern is used in `MovieFactory` and `CreditFactory` to encapsulate
 - **UI independence**: The MVC architecture decoupled core logic from UI, making it easier to adapt or swap interfaces.
 - **Team collaboration**: Clear separation of responsibilities supported parallel development across components.
 
-These patterns together provided a solid, extensible architecture that simplifies future enhancements such as new win conditions, alternative UIs, or expanded data sources.
-
-
 ## 4. Team Member
 
 - [**Penelope Lai**](https://github.com/laixinran) – Data Foundation  
