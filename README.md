@@ -29,7 +29,7 @@
 
 ## 2. Implemented Optional Feature
 
-### Add Time Feature
+#### Add Time Feature
 
 We’ve implemented a creative optional feature called **"Add Time"** to enhance gameplay flexibility.
 
