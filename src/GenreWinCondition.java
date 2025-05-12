@@ -1,5 +1,7 @@
 /**
  * Win condition: first to name a certain number of movies of a specific genre.
+ * for this game, we will set 5 movies with the genre that users chose as win condition
+ * but the specific number (5) will be handled in GameController class..
  */
 public class GenreWinCondition implements WinConditionStrategy {
     private final String genre;
