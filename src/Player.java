@@ -3,8 +3,6 @@ import java.util.*;
 /**
  * Represents a player in the Movie Name Game.
  * Tracks player state including name, score, win condition, and movie history.
- * This class handles state management for Member B's implementation, while
- * interfacing with win conditions that will be provided by Member C.
  */
 public class Player {
     private final String name;
@@ -66,8 +64,7 @@ public class Player {
 
     /**
      * Records a movie that the player has successfully named.
-     * Also checks if this movie contributes to achieving the player's win condition,
-     * which will be determined by Member C's win condition implementation.
+     * Also checks if this movie contributes to achieving the player's win condition
      *
      * @param movie The movie to add to the player's history
      */
@@ -80,7 +77,6 @@ public class Player {
 
     /**
      * Gets the player's win condition.
-     * This will be set to an implementation provided by Member C.
      *
      * @return The player's win condition
      */
@@ -122,7 +118,6 @@ public class Player {
     }
     /**
      * Resets the player's score to zero.
-     * This can be useful when starting a new game with the same players.
      */
     public void resetScore() {
         this.score = 0;
@@ -130,7 +125,6 @@ public class Player {
 
     /**
      * Resets the player's named movies list.
-     * This can be useful when starting a new game with the same players.
      */
     public void resetNamedMovies() {
         this.namedMovies.clear();
