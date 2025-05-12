@@ -77,8 +77,6 @@ These patterns together provided a solid, extensible architecture that simplifie
 
 ## 4. Team Member
 
-## 4. 👥 Team Members & Responsibilities
-
 - [**Penelope Lai**](https://github.com/laixinran) – Data Foundation  
   Built the core data model, indexing system, and movie connection logic.
 
