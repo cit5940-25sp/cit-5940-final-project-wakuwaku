@@ -77,11 +77,14 @@ These patterns together provided a solid, extensible architecture that simplifie
 
 ## 4. Team Member
 
-- **Penelope Lai – Data Foundation**  
+## 4. 👥 Team Members & Responsibilities
+
+- [**Penelope Lai**](https://github.com/laixinran) – Data Foundation  
   Built the core data model, indexing system, and movie connection logic.
 
-- **Yueyi Zhu – Game Logic**  
+- [**Yueyi Zhu**](https://github.com/Yueyyyyyyyy) – Game Logic  
   Implemented the game controller, player state management, and turn/timer logic.
 
-- **Yingfan Zhu – UI & Win Condition**  
+- [**Yingfan Zhu**](https://github.com/Zhuy01) – UI & Win Condition  
   Developed the Lanterna-based TUI and win condition system using the strategy pattern.
+
