@@ -6,7 +6,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * Controls the flow of the Movie Name Game.
  * Manages players, turns, game state, and validates moves.
- * This implements the core game logic as required for Member B's part of the project.
  */
 public class GameController {
     public enum GameState {
@@ -145,7 +144,7 @@ public class GameController {
     }
 
     /**
-     * Gets the current turn remaining seconds.
+     * get the current turn remaining seconds
      * @return The remaining seconds
      */
     public int getSecondsRemaining() {
@@ -173,7 +172,7 @@ public class GameController {
     }
 
     /**
-     * Processes a player's turn where they name a movie.
+     * processe a player's turn where they name a movie.
      *
      * @param movieTitle The title of the movie the player is naming
      * @return true if the move was valid and processed, false otherwise
@@ -380,7 +379,7 @@ public class GameController {
     }
 
     /**
-     * Gets the winner of the game, or null if there isn't one yet.
+     * Get the winner of the game, or null if there isn't one yet.
      *
      * @return The winning player, or null
      */
@@ -389,7 +388,7 @@ public class GameController {
     }
 
     /**
-     * Gets the player whose turn it currently is.
+     * Get the player whose turn it currently is.
      *
      * @return The current player, or null if the game hasn't started
      */
@@ -399,7 +398,7 @@ public class GameController {
     }
 
     /**
-     * Gets all players in the game.
+     * Get all players in the game.
      *
      * @return An unmodifiable list of all players
      */
@@ -411,7 +410,7 @@ public class GameController {
     }
 
     /**
-     * Gets the current turn count.
+     * Get the current turn count.
      *
      * @return The number of turns that have been played
      */
@@ -420,7 +419,7 @@ public class GameController {
     }
 
     /**
-     * Gets the current game summary.
+     * Get the current game summary.
      *
      * @return A string representation of the current game state
      */
@@ -478,8 +477,8 @@ public class GameController {
     }
 
     /**
-     * Gets a list of movies connected to the last played movie.
-     * Useful for providing hints or validating potential moves.
+     * Get a list of movies connected to the last played movie
+     * Useful for providing hints or validating potential moves
      *
      * @return A set of movies connected to the last played movie, or empty if no moves yet
      */
