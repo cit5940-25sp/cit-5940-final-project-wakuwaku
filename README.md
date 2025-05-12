@@ -75,5 +75,13 @@ The Factory pattern is used in `MovieFactory` and `CreditFactory` to encapsulate
 These patterns together provided a solid, extensible architecture that simplifies future enhancements such as new win conditions, alternative UIs, or expanded data sources.
 
 
-
 ## 4. Team Member
+
+- **Penelope Lai – Data Foundation**  
+  Built the core data model, indexing system, and movie connection logic.
+
+- **Yueyi Zhu – Game Logic**  
+  Implemented the game controller, player state management, and turn/timer logic.
+
+- **Yingfan Zhu – UI & Win Condition**  
+  Developed the Lanterna-based TUI and win condition system using the strategy pattern.
