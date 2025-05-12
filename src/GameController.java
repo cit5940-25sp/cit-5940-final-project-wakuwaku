@@ -43,7 +43,7 @@ public class GameController {
         this.player1 = null;
         this.player2 = null;
         this.isPlayer1Turn = true; // player 1 to begin the game
-        this.turnCount = 0;
+        this.turnCount = 1;
         this.state = GameState.NOT_STARTED;
         this.winner = null;
         this.usedMovieIds = new HashSet<>();
@@ -166,7 +166,7 @@ public class GameController {
 
         state = GameState.IN_PROGRESS;
         isPlayer1Turn = true;
-        turnCount = 0;
+        turnCount = 1;
         startTurnTimer();
 
         return true;
@@ -199,7 +199,7 @@ public class GameController {
         String connectionUsed = null;
 
         // For the first turn, check connection with the initial movie
-        Movie previousMovie = (turnCount == 0) ? initialMovie : getOpponent(currentPlayer).getLastNamedMovie();
+        Movie previousMovie = (turnCount == 1) ? initialMovie : getOpponent(currentPlayer).getLastNamedMovie();
 
         if (previousMovie != null) {
             // Check each role for connections
@@ -223,7 +223,10 @@ public class GameController {
             }
 
             if (!isConnected) {
-                // No connection found between the movies
+                // No connection found between the movies, current player loss the game
+                winner = getOpponent(currentPlayer);
+                state = GameState.COMPLETED;
+                timerRunning = false;
                 return false;
             }
 
@@ -296,7 +299,7 @@ public class GameController {
      * Handles a case where the current player's turn time has expired.
      * The current player loses, and the other player wins.
      */
-    private void handleTimeExpired() {
+    public void handleTimeExpired() {
         if (state != GameState.IN_PROGRESS) return;
         // Time expired for current player, so the other player wins
         Player currentPlayer = getCurrentPlayer();
@@ -483,7 +486,7 @@ public class GameController {
     public Set<Movie> getPossibleMovies() {
 // For the first turn, check connections with the initial movie
         Movie sourceMovie;
-        if (turnCount == 0) {
+        if (turnCount == 1) {
             sourceMovie = initialMovie;
         } else {
             // Get the last movie from the previous player
@@ -540,6 +543,13 @@ public class GameController {
      */
     public Map<String, Integer> getConnectionUsageCount() {
         return new HashMap<>(connectionUsageCount);
+    }
+
+    /**
+     * add extra time to current turn
+     */
+    public void addExtraTime(int seconds) {
+        secondsRemaining += seconds;
     }
 
     /**

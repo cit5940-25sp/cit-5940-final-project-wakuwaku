@@ -38,6 +38,10 @@ public class GenreWinCondition implements WinConditionStrategy {
     public int getTargetCount() {
         return targetCount;
     }
+
+    public String getGenre() {
+        return genre;
+    }
 }
 
 
