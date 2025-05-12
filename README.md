@@ -1,4 +1,4 @@
-## Movie Game Logic
+## 1. Movie Game Logic
 
 1. The first movie is randomly generated.  
    **(If a player later enters the same movie as the starter, they must enter a different one.)**
@@ -27,12 +27,27 @@
 > - **Each movie can only be used once.** Repeated entries are not allowed.  
 > - **Each connection type (e.g., actor) can be used a maximum of 3 times.**
 
+## 2. Implemented Optional Feature
 
-## Design Pattern
+### Add Time Feature
+
+We’ve implemented a creative optional feature called **"Add Time"** to enhance gameplay flexibility.
+
+#### How It Works:
+- Each player has **one opportunity** to add 60 seconds to any of their turns.
+- The **"Add Time"** status is shown as `"1/1"` at the start of the game, indicating one available use.
+- When a player inputs `"++"`, the display updates to `"0/1"` and an additional **60 seconds** is added to that turn.
+
+#### 💡 Reason for Adding This Feature:
+During testing, we found that the default 30-second limit was sometimes too short for players to both recall and type in a valid movie title.  
+By offering a **one-time extension**, we aim to:
+- Create a more balanced game experience  
+- Reduce pressure during tough turns  
+- Allow for strategic time management
+
+
+## 3. Design Pattern
 
 
 
-## Optional Feature
-
-
-## Team Member
+## 4. Team Member
