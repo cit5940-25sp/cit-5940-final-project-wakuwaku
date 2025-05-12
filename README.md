@@ -50,22 +50,22 @@ By offering a **one-time extension**, we aim to:
 
 Our Movie Name Game implementation applies three core design patterns to improve the structure, maintainability, and extensibility of the project.
 
-### 1. Model-View-Controller (MVC)
+#### 1. Model-View-Controller (MVC)
 The MVC pattern serves as the architectural foundation, promoting a clear separation of concerns:
 
 - **Model**: `Movie`, `MovieIndex`, and related classes encapsulate core data and business logic.
 - **View**: `TUIGameView` handles user interaction and displays game state.
 - **Controller**: `GameController` manages game flow, enforces rules, and mediates between model and view.
 
-### 2. Strategy Pattern
+#### 2. Strategy Pattern
 The Strategy pattern is implemented via the `WinConditionStrategy` interface and its concrete class `GenreWinCondition`, allowing win logic to be modular and easily extended.
 
-### 3. Factory Pattern
+#### 3. Factory Pattern
 The Factory pattern is used in `MovieFactory` and `CreditFactory` to encapsulate complex object creation logic, particularly for parsing movie and credit data from CSV files.
 
 ---
 
-### Summary of Benefits
+#### Summary of Benefits
 
 - **Data complexity**: The Factory pattern streamlined the loading of nested data structures.
 - **Game rule flexibility**: The Strategy pattern enabled modular and testable win condition logic.
