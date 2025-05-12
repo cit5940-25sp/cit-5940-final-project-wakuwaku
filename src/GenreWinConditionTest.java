@@ -11,6 +11,8 @@ public class GenreWinConditionTest {
     private Movie comedyMovie;
     private Movie mixedMovie;
 
+    //testing the genrewincondition class
+
     @BeforeEach
     void setUp() {
         genreCondition = new GenreWinCondition("Horror", 5);
