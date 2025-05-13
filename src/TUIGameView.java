@@ -323,6 +323,8 @@ public class TUIGameView {
 
         // Center the timer on row 1 (below the round)
         int cols = screenWidth;
+        // First clear the entire line to prevent old digits from remaining
+        clearLine(1);
         printString((cols - timerStr.length())/2, 1, timerStr);
 
         screen.refresh();
@@ -350,7 +352,7 @@ public class TUIGameView {
         int cols = screenWidth;
         int round = controller.getTurnCount();
 
-        // ── Header ─────────────────────────────────────────────────────
+        // Header
         // Active player info (left)
         printString(0, 0, active.getName() + " (You)");
         WinConditionStrategy myC = active.getWinCondition();
@@ -391,7 +393,7 @@ public class TUIGameView {
         // Game status info
         printString(0, 5, "Game status: " + controller.getState());
 
-        // ── History ────────────────────────────────────────────────────
+        // History
         printString(0, 7, "Movie History (last 5):");
         int start = Math.max(0, history.size() - 5);
         for (int i = start; i < history.size(); i++) {
@@ -425,7 +427,7 @@ public class TUIGameView {
             }
         }
 
-        // ── Connection Rules ────────────────────────────────────────────
+        // Connection Rules
         // Rules display position may need adjustment as history now takes more space
         int rulesRow = Math.max(19, 8 + (Math.min(5, history.size()) * 2) + 1);
         printString(0, rulesRow++, "Game Rules:");
@@ -435,7 +437,7 @@ public class TUIGameView {
         printString(0, rulesRow++, "- First to name " + this.winTarget + " movies in their genre wins");
         //printString(0, rulesRow++, "- Type '++' to add 60 seconds (once per player)");
 
-        // ── Input & Suggestions ───────────────────────────────────────
+        // Input & Suggestions
         int inputRow = screenHeight - 7; // Leave enough space for suggestions
         printString(0, inputRow, "Enter a movie title connected to the previous one:");
         printString(0, inputRow + 1, "> " + currentInput);
@@ -522,7 +524,7 @@ public class TUIGameView {
     }
 
     /**
-     * Demo entry‐point:
+     * Game demo:
      * 1) Loads the CSVs into a MovieIndex
      * 2) Creates GameController (default winTarget=5)
      * 3) Gathers all distinct genres from the index
