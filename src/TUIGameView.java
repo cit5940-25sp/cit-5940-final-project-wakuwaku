@@ -323,8 +323,13 @@ public class TUIGameView {
 
         // Center the timer on row 1 (below the round)
         int cols = screenWidth;
-        // First clear the entire line to prevent old digits from remaining
-        clearLine(1);
+        
+        // Clear only the timer area, not the entire line
+        int startX = Math.max(0, (cols - timerStr.length()) / 2);
+        int endX = Math.min(cols, startX + timerStr.length() + 4); // +4 for safety margin
+        for (int i = startX; i < endX; i++) {
+            screen.setCharacter(i, 1, new TextCharacter(' ', TextColor.ANSI.WHITE, TextColor.ANSI.BLACK));
+        }
         printString((cols - timerStr.length())/2, 1, timerStr);
 
         screen.refresh();
